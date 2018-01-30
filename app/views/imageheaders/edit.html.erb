@@ -1,0 +1,10 @@
+<% if admin_signed_in? %>
+	<div class="container">
+		<h1>Editing Image Header</h1>
+	  <strong>
+		<%= render 'form', image_header: @image_header %>
+
+		<%= link_to 'Show', @image_header, class: "btn btn-success" %> 
+	 </strong>
+	</div>
+<% end %>	

@@ -1,0 +1,9 @@
+ <% if admin_signed_in? %>
+	<div class="container">
+		<h1 style="text-align: center;">New Jordan</h1>
+
+		<%= render 'form', jordan: @jordan %><br>
+
+		
+	</div>
+ <% end %>	

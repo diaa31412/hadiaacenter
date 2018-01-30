@@ -1,0 +1,19 @@
+<div class="container">
+	<p id="notice"><%= notice %></p>
+	<p style="text-align: center;">
+		<%= image_tag(@course.picture_url, )if @course.picture.present? %>
+	</p>
+	</p><br><br>
+	<h2 style="text-align: center;">
+	  <%= @course.name %>
+	</h2><br><br>
+	<p>
+	 <%= raw @course.description %>
+	</p>
+	<div class="form-actions" style="margin-left: 400px;">
+		 <% if admin_signed_in? %>
+			<%= link_to 'Edit', edit_course_path(@course), class: "btn btn-success" %> 
+		 <% end %>
+         <%= link_to 'Back', courses_path , class: "btn btn-primary"%>
+	</div>
+</div>

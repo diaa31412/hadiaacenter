@@ -1,0 +1,19 @@
+<br>
+<div class="container">
+	<p id="notice"><%= notice %></p>
+
+	<p class="imgsh">
+	  
+	  <%= image_tag(@imageheader.picture)%>
+	</p>
+	<br>
+    <div style="margin-left: 50%">
+    	 <% if admin_signed_in? %>
+		 <%= link_to 'Edit', edit_imageheader_path(@imageheader), class: "btn btn-success" %> 
+		 <% end %>
+			<%= link_to 'Back', imageheaders_path, class: "btn btn-primary" %>
+		 <% if admin_signed_in? %>
+		   <%= link_to 'Delete', @imageheader, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
+		<% end %>
+	</div>
+</div>

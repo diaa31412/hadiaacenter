@@ -1,0 +1,18 @@
+<% if admin_signed_in? %>
+  <%= link_to 'New Course', new_course_path, class: "btn btn-primary" %>
+<% end %>
+<div class="container row">
+  <p id="notice"><%= notice %></p>
+  <% @courses.each do |course| %>
+    <div class=" col-md-4 ">
+      <%= image_tag(course.picture_url, size: "225x225",class: "img-circle"  )if course.picture.present? %>
+         <h2><%= course.name %></h2>
+         <p ><%= raw course.description.truncate(100) %></p>
+        <p><%= link_to 'Show', course, class: "btn btn-info" %>
+          <% if admin_signed_in? %>
+            <%= link_to 'Edit', edit_course_path(course), class: "btn btn-success"  %>
+            <%= link_to 'Destroy', course,  class: "btn btn-danger" ,method: :delete, data: { confirm: 'Are you sure?' } %></p>
+     <% end %>
+    </div>
+  <% end %>
+</div>

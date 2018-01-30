@@ -1,0 +1,7 @@
+ <% if admin_signed_in? %>
+	<div class="container">
+		<h1 style="text-align: center;">New Image Header</h1>
+
+		<%= render 'form', image_header: @imageheaders %>	
+	</div>
+<% end %>

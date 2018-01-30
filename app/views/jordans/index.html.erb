@@ -1,0 +1,21 @@
+
+<div class="container row">
+  <p id="notice"><%= notice %>
+  <% if admin_signed_in? %>
+      <%= link_to 'New Jordan', new_jordan_path,class: "btn btn-primary" %>
+  <% end %>
+   <br><br><br>
+  <% @jordans.each do |jordan| %>
+        <div class=" col-md-4 ">
+          <%= image_tag(jordan.picture_url  )if jordan.picture.present? %>
+          <h2><%= jordan.name %></h2>
+          <p><%= raw jordan.description.truncate(100) %></p>
+          <p><strong><%= link_to 'Show', jordan , class: "btn btn-info" %></strong>
+             <% if admin_signed_in? %>
+                <%= link_to 'Edit', edit_jordan_path(jordan),class: "btn btn-success"  %>
+                <%= link_to 'Destroy', jordan, class: "btn btn-danger" , method: :delete, data: { confirm: 'Are you sure?' } %>
+             <% end %>
+          </p>
+        </div><!-- /.col-lg-4 -->
+   <% end %>
+</div><!-- /.row -->

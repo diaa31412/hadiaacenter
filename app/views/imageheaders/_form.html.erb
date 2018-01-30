@@ -1,0 +1,27 @@
+
+<div class="continer">
+  <%= form_with(model: @imageheader, local: true) do |form| %>
+    <% if @imageheader.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@imageheader.errors.count, "error") %> prohibited this imageheader from being saved:</h2>
+
+        <ul>
+        <% @imageheader.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field" >
+      <h2><%= form.label :picture %></h2>
+      <%= form.file_field  :picture, id: :imageheader_picture %>
+      
+    </div>
+
+    <div class="actions">
+      <%= form.button :submit , class: "btn btn-danger" %>
+      <%= link_to 'Back', imageheaders_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

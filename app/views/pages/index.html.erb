@@ -1,0 +1,61 @@
+
+
+<!--start image Header-->
+ <div class="row">    
+    <section class="bxslider" style="margin-top: 0px">
+        <% @image_headers.each do |image_header| %>
+        <%= image_tag(image_header.picture_url,height: '400' , class: "imghd ")if image_header.picture.present? %> 
+    <% end %>  
+  </section>
+
+</div>
+<!--End image Header-->
+
+<br><br>
+<!--Start courses -->
+<div class="container">
+  <% @courses.each do |course| %>
+      <div class=" col-md-4 ">
+        <%= image_tag(course.picture_url, size: "225x225",class: "img-circle"  )if course.picture.present? %>
+         <h2><%= course.name %></h2>
+         <p ><%= raw course.description.truncate(100) %></p>
+         <%= link_to 'Show', course, class: "btn btn-info" %>
+      </div>
+  <% end %>
+  <br>
+  
+</div>  
+<div class="row" style="text-align: center;">
+     <button type="button" class="btn btn-default">Read Nore</button>
+</div>
+<!--End Courses -->
+<br><br><br>
+<!--Start information about Jordan-->
+<div class="container">
+  <% @jordans.each do |jordan| %>
+        <div class=" col-md-4 ">
+          <%= image_tag(jordan.picture_url  )if jordan.picture.present? %>
+          <h2><%= jordan.name %></h2>
+          <p><%= raw jordan.description.truncate(100) %></p>
+          <%= link_to 'Show', jordan, class: "btn btn-info" %>
+        </div><!-- /.col-lg-4 -->
+  <% end %>
+  
+</div>
+<div class="row" style="text-align: center;">
+     <button type="button" class="btn btn-default">Read Nore</button>
+</div>
+<!--End information about Jordan -->
+<%= render template: "pages/aboutus" %>
+<br><br><br>
+<script >
+  $(function(){
+    $('.bxslider').bxSlider({
+      auto: true,
+     
+     controls: false,
+     pager:false,
+     
+    });
+});
+</script>

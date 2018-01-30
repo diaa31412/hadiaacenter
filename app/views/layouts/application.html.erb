@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hadiaacenter</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand" ><%= link_to 'Hadia Center', root_path %></div>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="#">Main page</a></li>
+              
+              <li><%= link_to 'Courses', courses_path %></li>
+              <li><%= link_to 'Jordan', jordans_path %></li>
+              <li><%= link_to 'About us' ,pages_aboutus_path%></li>
+             <li><%= link_to 'Contact us' %></li>
+             <% if admin_signed_in? %>
+                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to "log out", destroy_admin_session_path, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="#">Separated link</a></li>
+                    </ul>
+                  </li>
+               <% end %>
+            </ul>
+          </div><!--/.nav-collapse-->
+        </div>
+      </nav> 
+        <br><br>
+
+      
+
+
+         
+
+        <%= yield %>
+<br><br><br><br><br>
+    
+  	   
+  	 
+<div class="footer">
+  <p style="margin-top: 15px; font-size: 18px; margin-left: 10px">Hadia Center@ <%= Time.now.year %>
+  <em style="float:  right; margin-right: 5px;">
+    <%= image_tag("twit.jpg", class: "img-circle",size: '40x40', :alt => "twiter") %>
+    <%= image_tag("f.png", class: "img-circle",size: '40x40', :alt => "face") %>
+    <%= image_tag("lin.png", class: "img-circle",size: '40x40', :alt => "linkedin") %>
+    <%= image_tag("ins.jpg", class: "img-circle",size: '40x40', :alt => "linkedin") %>
+    <%= image_tag("whatsapp.png", class: "img-circle",size: '40x40', :alt => "linkedin") %>
+  </em>
+  </p>
+</div>
+  </body>
+</html>

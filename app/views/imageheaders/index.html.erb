@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <h1>Image Headers</h1>
+
+
+  <br>
+<% if admin_signed_in? %>
+  <%= link_to 'New Image Header', new_imageheader_path,class: "btn btn-primary" %>
+<% end %>
+ <br> <br>
+  
+    <% @imageheaders.each do |image_header| %>
+      <div class="col-md-4" class="bxslider">
+     <div ><%= image_tag(image_header.picture_url, class: "imghd"  )%> </div><br>
+      <%= link_to 'Show', image_header, class: "btn btn-info" %>
+       <% if admin_signed_in? %>
+        <%= link_to 'Edit', edit_imageheader_path(image_header), class: "btn btn-success" %>
+        <%= link_to 'Delete', image_header, class: "btn btn-danger",method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+      </div>
+    <% end %>
+  
+</div>
+
